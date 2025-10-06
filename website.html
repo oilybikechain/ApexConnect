@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApexConnect: Investor Pitch Deck</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Slate Gray & Sky Blue -->
+    <!-- Application Structure Plan: A single-page, vertical-scrolling narrative with a sticky navigation header. This structure was chosen to guide investors through the pitch logically, like a presentation, while allowing them to jump to sections of interest (Market, Roadmap) via the navigation. Key interactions include interactive charts for market data, a feature comparison table for competitive analysis, and a clickable timeline for the roadmap, making dense information digestible and engaging. The flow is designed to build a compelling case from problem to solution to execution. -->
+    <!-- Visualization & Content Choices: 
+        - Market Potential (TAM/SAM/SOM): Goal: Inform on market scale. Viz: HTML/CSS Concentric Circles with labels. Interaction: None. Justification: A traditional and clear way to represent the market funnel. Library: Tailwind CSS.
+        - Competitive Landscape: Goal: Compare and highlight advantage. Viz: HTML Table. Interaction: None. Justification: A clear, direct comparison is most effective for showing feature gaps. Library: Tailwind CSS.
+        - Business Model & GTM: Goal: Organize and clarify strategy. Viz: Styled cards and step-based list. Interaction: None. Justification: Clear segmentation of information for readability. Library: Tailwind CSS. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        .slide {
+            min-height: 100vh;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 1rem;
+        }
+        .slide.active {
+            display: flex;
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <main id="presentation-container">
+        <!-- Slide 1: Title -->
+        <section id="slide-1" class="slide active">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="flex items-center justify-center space-x-4 mb-6">
+                    <span class="text-6xl font-bold text-sky-600">▲</span>
+                    <h1 class="text-5xl font-bold text-slate-800">ApexConnect</h1>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold tracking-tight text-slate-900">The Future of Fitness is <span class="text-sky-600">Connected</span>.</h2>
+                <p class="mt-6 text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">
+                    A single, integrated social platform that connects Singapore's fitness community to gyms, friends, and their best selves.
+                </p>
+                 <p class="mt-12 text-slate-500">Monday, October 6, 2025</p>
+            </div>
+        </section>
+
+        <!-- Slide 2: The Opportunity -->
+        <section id="slide-2" class="slide bg-white">
+            <div class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">The Opportunity</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h4 class="text-2xl font-semibold text-slate-800 mb-6">The Problem</h4>
+                        <ul class="space-y-6">
+                            <li class="flex items-start"><span class="text-2xl mr-4">😩</span><div><h5 class="font-semibold">Discovery is a Chore</h5></div></li>
+                            <li class="flex items-start"><span class="text-2xl mr-4">📉</span><div><h5 class="font-semibold">Motivation is Fleeting</h5></div></li>
+                            <li class="flex items-start"><span class="text-2xl mr-4">🤯</span><div><h5 class="font-semibold">Coordination is Inefficient</h5></div></li>
+                            <li class="flex items-start"><span class="text-2xl mr-4">❓</span><div><h5 class="font-semibold">Connections are Opaque</h5></div></li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-50 p-8 rounded-xl">
+                        <h4 class="text-2xl font-semibold text-sky-700 mb-6">Our Solution</h4>
+                        <ul class="space-y-6">
+                             <li class="flex items-start"><span class="text-sky-500 text-2xl mr-4">→</span><div><h5 class="font-semibold">Comprehensive Gym Database</h5></div></li>
+                             <li class="flex items-start"><span class="text-sky-500 text-2xl mr-4">→</span><div><h5 class="font-semibold">Social Workout Feed</h5></div></li>
+                             <li class="flex items-start"><span class="text-sky-500 text-2xl mr-4">→</span><div><h5 class="font-semibold">The "Gym Buddy" Connector</h5></div></li>
+                             <li class="flex items-start"><span class="text-sky-500 text-2xl mr-4">→</span><div><h5 class="font-semibold">Personal Trainer Marketplace</h5></div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: Market Potential -->
+        <section id="slide-3" class="slide">
+             <div class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Market Potential</h3>
+                    <p class="mt-4 text-lg text-slate-600">Tapping into a large and growing health-conscious market in Singapore.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="flex items-center justify-center py-8">
+                        <div class="flex items-center gap-4 sm:gap-6">
+                            <!-- Circles -->
+                            <div class="relative w-52 h-52 sm:w-60 sm:h-60 flex-shrink-0">
+                                <div class="absolute inset-0 rounded-full bg-sky-700 flex items-center justify-center" title="Total Addressable Market">
+                                     <div class="w-[70%] h-[70%] rounded-full bg-cyan-400 flex items-center justify-center" title="Serviceable Addressable Market">
+                                        <div class="w-[50%] h-[50%] rounded-full bg-sky-500" title="Serviceable Obtainable Market"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Labels -->
+                            <div class="space-y-6">
+                                <!-- TAM Label -->
+                                <div class="flex items-center">
+                                     <div class="w-8 h-px bg-slate-300 mr-3"></div>
+                                     <div>
+                                        <p class="text-2xl font-bold text-slate-800">$1.2B</p>
+                                        <p class="font-semibold text-sky-800 text-sm">TOTAL ADDRESSABLE MARKET</p>
+                                     </div>
+                                </div>
+                                 <!-- SAM Label -->
+                                <div class="flex items-center">
+                                     <div class="w-8 h-px bg-slate-300 mr-3"></div>
+                                     <div>
+                                        <p class="text-2xl font-bold text-slate-800">$450M</p>
+                                        <p class="font-semibold text-cyan-800 text-sm">SERVICEABLE ADDRESSABLE MARKET</p>
+                                     </div>
+                                </div>
+                                 <!-- SOM Label -->
+                                <div class="flex items-center">
+                                     <div class="w-8 h-px bg-slate-300 mr-3"></div>
+                                     <div>
+                                        <p class="text-2xl font-bold text-slate-800">$75M</p>
+                                        <p class="font-semibold text-sky-700 text-sm">SERVICEABLE OBTAINABLE MARKET</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-sm"><h5 class="font-semibold text-slate-800">Target Market</h5><p class="text-slate-600 mt-2">Tech-savvy millennials & Gen Z (18-45), plus retirees and elderlies seeking active lifestyles.</p></div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm"><h5 class="font-semibold text-slate-800">Early Adopters</h5><p class="text-slate-600 mt-2">University students and CBD professionals.</p></div>
+                        <div class="bg-sky-100 p-6 rounded-lg shadow-sm"><h5 class="font-semibold text-sky-800">Our Initial Goal</h5><p class="text-sky-700 mt-2">Targeting 50,000 active users in two years, with a projected annual revenue of US$1.5-2.5 million.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Competitive Landscape -->
+        <section id="slide-4" class="slide bg-white">
+            <div class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Competitive Landscape</h3>
+                    <p class="mt-4 text-lg text-slate-600">No single competitor integrates the social, discovery, and connection features that define ApexConnect.</p>
+                </div>
+                <div class="flow-root">
+                    <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                            <table class="min-w-full divide-y divide-slate-300">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-slate-900 sm:pl-0">Feature</th>
+                                        <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-slate-900">ClassPass</th>
+                                        <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-slate-900">Strava</th>
+                                        <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-slate-900">Social Media</th>
+                                        <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-sky-600 bg-sky-50 rounded-t-lg">ApexConnect</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200 bg-white">
+                                    <tr><td class="py-4 pl-4 pr-3 text-sm font-medium text-slate-900 sm:pl-0">Gym Discovery</td><td class="px-3 py-4 text-sm text-center">❌</td><td class="px-3 py-4 text-sm text-center">❌</td><td class="px-3 py-4 text-sm text-center">⚠️</td><td class="px-3 py-4 text-sm text-center bg-sky-50 font-bold">✅</td></tr>
+                                    <tr><td class="py-4 pl-4 pr-3 text-sm font-medium text-slate-900 sm:pl-0">Social Feed</td><td class="px-3 py-4 text-sm text-center">❌</td><td class="px-3 py-4 text-sm text-center">✅</td><td class="px-3 py-4 text-sm text-center">⚠️</td><td class="px-3 py-4 text-sm text-center bg-sky-50 font-bold">✅</td></tr>
+                                    <tr><td class="py-4 pl-4 pr-3 text-sm font-medium text-slate-900 sm:pl-0">Find "Gym Buddy"</td><td class="px-3 py-4 text-sm text-center">❌</td><td class="px-3 py-4 text-sm text-center">❌</td><td class="px-3 py-4 text-sm text-center">❌</td><td class="px-3 py-4 text-sm text-center bg-sky-50 font-bold">✅</td></tr>
+                                    <tr><td class="py-4 pl-4 pr-3 text-sm font-medium text-slate-900 sm:pl-0">PT Marketplace</td><td class="px-3 py-4 text-sm text-center">❌</td><td class="px-3 py-4 text-sm text-center">❌</td><td class="px-3 py-4 text-sm text-center">❌</td><td class="px-3 py-4 text-sm text-center bg-sky-50 rounded-b-lg font-bold">✅</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                 <div class="mt-12 max-w-2xl mx-auto bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg">
+                    <h4 class="font-semibold text-green-800">Our Competitive Advantage</h4>
+                    <p class="text-green-700 mt-2">Our "Gym Buddy" schedule-matching feature is a unique, powerful tool for driving real-world connections and creating a sticky user experience that competitors cannot replicate.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Go-to-Market -->
+        <section id="slide-5" class="slide">
+            <div class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Go-to-Market Plan</h3>
+                    <p class="mt-4 text-lg text-slate-600">A "freemium" model designed for rapid user acquisition and targeted monetization.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-lg shadow-sm">
+                        <h4 class="text-xl font-semibold mb-4">Business Model & Revenue</h4>
+                        <div class="space-y-4">
+                            <div><h5 class="font-semibold text-sky-700">For Users (Freemium)</h5><p class="text-slate-600">Core app is free. **Premium Subscription (~S$7.99/mo)** unlocks advanced features.</p></div>
+                            <div><h5 class="font-semibold text-sky-700">For Professionals (Marketplace)</h5><p class="text-slate-600">Free profiles with a **Pro Tier** for visibility and booking, earning a ~10% commission.</p></div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-sm">
+                        <h4 class="text-xl font-semibold mb-6">Customer Acquisition Strategy</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-center"><div class="flex items-center justify-center h-8 w-8 rounded-full bg-sky-100 text-sky-600 font-bold text-md mr-4">1</div><p><b>Pre-Launch:</b> Partner with influencers and trainers to build hype.</p></div>
+                            <div class="flex items-center"><div class="flex items-center justify-center h-8 w-8 rounded-full bg-sky-100 text-sky-600 font-bold text-md mr-4">2</div><p><b>Launch:</b> Execute targeted digital campaigns and on-ground ambassador programs.</p></div>
+                            <div class="flex items-center"><div class="flex items-center justify-center h-8 w-8 rounded-full bg-sky-100 text-sky-600 font-bold text-md mr-4">3</div><p><b>Scale:</b> Implement referral programs and forge strategic partnerships.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Thank You -->
+        <section id="slide-6" class="slide">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="flex items-center justify-center space-x-4 mb-6">
+                    <span class="text-6xl font-bold text-sky-600">▲</span>
+                    <h1 class="text-5xl font-bold text-slate-800">ApexConnect</h1>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-slate-900">Join Us in Building the Future of Fitness</h2>
+                <div class="mt-12">
+                     <p class="mt-2 text-xl text-slate-700">We are building the definitive community hub for fitness in Singapore.</p>
+                     <p class="mt-6 text-slate-500 font-semibold">Thank you.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <div id="slide-navigation" class="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-lg shadow-t">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-3">
+            <button id="prev-btn" class="bg-slate-200 text-slate-700 px-4 py-2 rounded-md hover:bg-slate-300 disabled:opacity-50 disabled:cursor-not-allowed">Previous</button>
+            <div id="slide-counter" class="text-sm text-slate-600 font-medium"></div>
+            <button id="next-btn" class="bg-sky-600 text-white px-4 py-2 rounded-md hover:bg-sky-700">Next</button>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slide');
+            const totalSlides = slides.length;
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const slideCounter = document.getElementById('slide-counter');
+
+            const showSlide = (index) => {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                });
+                currentSlide = index;
+                updateNav();
+            };
+
+            const updateNav = () => {
+                prevBtn.disabled = currentSlide === 0;
+                nextBtn.disabled = currentSlide === totalSlides - 1;
+                slideCounter.textContent = `Slide ${currentSlide + 1} of ${totalSlides}`;
+            };
+
+            prevBtn.addEventListener('click', () => {
+                if (currentSlide > 0) {
+                    showSlide(currentSlide - 1);
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (currentSlide < totalSlides - 1) {
+                    showSlide(currentSlide + 1);
+                }
+            });
+            
+            showSlide(0);
+        });
+    </script>
+</body>
+</html>
+
